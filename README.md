@@ -1,95 +1,26 @@
-#importing Packages from tkinter
-from tkinter import *
-from tkinter import messagebox 
+Tic Tac Toe Game – Tkinter Edition
+This repository hosts a classic Tic Tac Toe game built using Python and Tkinter for the graphical user interface (GUI). The game is designed for two players (X and O) who take turns marking their respective symbols in a 3x3 grid. The objective is to get three marks in a row, either horizontally, vertically, or diagonally. This repository provides:
 
-Player1 = 'X'
-stop_game = False
+Full source code for a simple yet interactive Tic Tac Toe game.
+A Tkinter-based GUI for player interaction.
+Game logic that handles player turns, win conditions, and tie scenarios.
+Message pop-ups to announce the winner or declare a tie.
+A clean and minimal interface designed for ease of play.
+Key Features:
+Player Interaction: Two players can alternate turns using the buttons on the grid.
+Win Detection: The game checks for win conditions after every turn, including rows, columns, and diagonals.
+Tie Detection: The game automatically detects when all cells are filled, resulting in a tie.
+Easy-to-Understand Code: Ideal for beginners learning Python, Tkinter, or game development.
+How It Works:
+The game consists of a 3x3 button grid, where each button represents a cell in the Tic Tac Toe grid. Players click on a button to mark their symbol (X or O). The game checks for win or tie conditions after each move and ends when a winner is found or all cells are filled.
 
-def clicked(r,c):
-	
-	#player
-	global Player1
-	# global stop_game
-
-	if Player1 == "X" and states[r] == 0 and stop_game == False:
-		b[r].configure(text = "X")
-		states[r] = 'X'
-		Player1='O'
-
-	
-	if Player1 == 'O' and states[r] == 0 and stop_game == False:
-		b[r].configure(text = 'O')
-		states[r] = "O"
-		Player1 = "X"
-
-	check_if_win()
-	# check_if_tie()
-	# if check_if_win() == False:
-	#	 tie = messagebox.showinfo("tie","its tie")
-	#	 return tie
-def check_if_win():
-	global stop_game
-	# count = 0
-
-	for i in range(3):
-		if states[i][0] == states[i][1] == states[i][2] !=0:
-			stop_game = True
-
-			winner = messagebox.showinfo("Winner", states[i][0] + " Won")
-			# disableAllButton()
-			break
-
-	# for j in range(3):
-		elif states [0][i] == states[1][i] == states[2][i] != 0:
-			stop_game = True
-
-			winner = messagebox.showinfo("Winner", states[0][i]+ " Won!")
-			break
-
-		elif states[0][0] == states[1][1] == states[2][2] !=0:
-			stop_game = True
-
-			winner = messagebox.showinfo("Winner", states[0][0]+ " Won!")
-			break
-
-		elif states[0][2] == states[1][1] == states[2][0] !=0:
-			stop_game = True
-
-			winner = messagebox.showinfo("Winner" , states[0][2]+ " Won!")
-			break
-
-		elif states[0][0] and states[0][1] and states[0][2] and states[1][0] and states[1][1] and states[1][2] and states[2][0] and states[2][1] and states[2][2] != 0:
-			stop_game = True
-
-			winner = messagebox.showinfo("tie", "Tie")
-
-# Design window
-#Creating the Canvas 
-root = Tk()
-# Title of the window			 
-root.title("GeeksForGeeks-:Tic Tac Toe") 
-root.resizable(0,0)
-
-#Button
-b = [
-	[0,0,0],
-	[0,0,0],
-	[0,0,0]]
-
-#text for buttons
-states = [
-	[0,0,0],
-	[0,0,0],
-	[0,0,0]]
-
-for i in range(3):
-	for j in range(3): 
-										
-		b[i][j] = Button(
-						height = 4, width = 8, 
-						font = ("Helvetica","20"), 
-						command = lambda r = i, c = j : clicked(r,c))
-		b[i][j].grid(row = i, column = j)
-
-
-mainloop()		 
+Future Enhancements:
+Implementing an optional AI opponent for single-player mode.
+Adding difficulty levels for AI challenges.
+Improving the GUI aesthetics and adding sound effects.
+Setup Instructions:
+Clone the repository.
+Ensure you have Python installed.
+Run the script using python tic_tac_toe.py.
+Play the game by clicking on the buttons and enjoy!
+This project is perfect for learning the basics of Python, Tkinter, and building simple interactive games. Explore and customize the code to make your own variations of this timeless game!
